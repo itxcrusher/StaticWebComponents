@@ -1,0 +1,29 @@
+body{
+	background-color: black;
+}
+
+.wrapper h1{
+	font-size: 50px;
+	background: url('fire.png') repeat-x 100px;
+
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-font-smoothing: antialiased;
+	
+	animation: fire 40s linear infinite;
+}
+
+@keyframes fire{
+	0%{
+		background-position: left 0 top 10px;
+	}
+	30%{
+		background-position: left 1000px top 0;
+	}
+	70%{
+		background-position: left 2000px top -5px;
+	}
+	100%{
+		background-position: left 3000px top -10px;
+	}
+}

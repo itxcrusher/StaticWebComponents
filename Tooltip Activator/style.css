@@ -1,0 +1,287 @@
+
+/*body {
+  background: black;
+  height: 100vh;
+  font: 400 16px "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}*/
+.tooltip-wrapper {
+  --background: #62ABFF;
+  --icon-color: #414856;
+  --shape-color-01: #B8CBEE;
+  --shape-color-02: #7691E8;
+  --shape-color-03: #FDD053;
+  --width: 90px;
+  --height: 90px;
+  --border-radius: var(--height);
+  width: var(--width);
+  height: var(--height);
+  position: relative;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tooltip-wrapper .tooltip-btn {
+  background: var(--background);
+  width: var(--width);
+  height: var(--height);
+  position: relative;
+  z-index: 3;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: plus-animation-reverse 0.5s ease-out forwards;
+          animation: plus-animation-reverse 0.5s ease-out forwards;
+}
+.tooltip-wrapper .tooltip-btn::before, .tooltip-wrapper .tooltip-btn::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 4px;
+  background: #fff;
+}
+.tooltip-wrapper .tooltip-btn::before {
+  width: 4px;
+  height: 28px;
+}
+.tooltip-wrapper .tooltip-btn::after {
+  width: 28px;
+  height: 4px;
+}
+.tooltip-wrapper .tooltip-activator {
+  width: 90px;
+  height: 75px;
+  border-radius: 70px;
+  position: absolute;
+  background: #fff;
+  z-index: 2;
+  padding: 0 15px;
+  box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
+  opacity: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: opacity 0.15s ease-in, top 0.15s ease-in, width 0.15s ease-in;
+}
+.tooltip-wrapper .tooltip-activator > svg:hover .icon {
+  opacity: 1;
+}
+.tooltip-wrapper .tooltip-activator::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 3px;
+  position: absolute;
+  left: 50%;
+  margin-left: -10px;
+  bottom: -8px;
+  transform: rotate(45deg);
+  z-index: 0;
+}
+.tooltip-wrapper > svg {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  z-index: 1;
+  transform: scale(0);
+}
+.tooltip-wrapper > svg .shape {
+  fill: none;
+  stroke: none;
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform-origin: 50% 20%;
+}
+.tooltip-wrapper input {
+  height: 100%;
+  width: 100%;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  position: absolute;
+  z-index: 5;
+  opacity: 0;
+}
+.tooltip-wrapper input:checked ~ svg {
+  -webkit-animation: pang-animation 1.2s ease-out forwards;
+          animation: pang-animation 1.2s ease-out forwards;
+}
+.tooltip-wrapper input:checked ~ svg .shape:nth-of-type(1) {
+  transform: translate(24px, 30%) rotate(40deg);
+}
+.tooltip-wrapper input:checked ~ svg .shape:nth-of-type(2) {
+  transform: translate(-21px, 30%) rotate(80deg);
+}
+.tooltip-wrapper input:checked ~ svg .shape:nth-of-type(3) {
+  transform: translate(-8px, 30%) rotate(120deg);
+}
+.tooltip-wrapper input:checked ~ svg .shape:nth-of-type(4) {
+  transform: translate(12px, 30%) rotate(160deg);
+}
+.tooltip-wrapper input:checked ~ svg .shape:nth-of-type(5) {
+  transform: translate(-24px, 30%) rotate(200deg);
+}
+.tooltip-wrapper input:checked ~ svg .shape:nth-of-type(6) {
+  transform: translate(23px, 30%) rotate(240deg);
+}
+.tooltip-wrapper input:checked ~ svg .shape:nth-of-type(7) {
+  transform: translate(4px, 30%) rotate(280deg);
+}
+.tooltip-wrapper input:checked ~ svg .shape:nth-of-type(8) {
+  transform: translate(-2px, 30%) rotate(320deg);
+}
+.tooltip-wrapper input:checked ~ svg .shape:nth-of-type(9) {
+  transform: translate(-19px, 30%) rotate(360deg);
+}
+.tooltip-wrapper input:checked ~ .tooltip-btn {
+  -webkit-animation: plus-animation 0.5s ease-out forwards;
+          animation: plus-animation 0.5s ease-out forwards;
+}
+.tooltip-wrapper input:checked ~ .tooltip-activator {
+  width: 230px;
+  height: 70px;
+  -webkit-animation: stretch-animation 1s ease-out forwards 0.15s;
+          animation: stretch-animation 1s ease-out forwards 0.15s;
+  top: -90px;
+  opacity: 1;
+}
+
+@-webkit-keyframes pang-animation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes pang-animation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes plus-animation {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  20% {
+    transform: rotate(60deg) scale(0.93);
+  }
+  55% {
+    transform: rotate(35deg) scale(0.97);
+  }
+  80% {
+    transform: rotate(48deg) scale(0.94);
+  }
+  100% {
+    transform: rotate(45deg) scale(0.95);
+  }
+}
+@keyframes plus-animation {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  20% {
+    transform: rotate(60deg) scale(0.93);
+  }
+  55% {
+    transform: rotate(35deg) scale(0.97);
+  }
+  80% {
+    transform: rotate(48deg) scale(0.94);
+  }
+  100% {
+    transform: rotate(45deg) scale(0.95);
+  }
+}
+@-webkit-keyframes plus-animation-reverse {
+  0% {
+    transform: rotate(45deg) scale(0.95);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+  55% {
+    transform: rotate(10deg);
+  }
+  80% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+@keyframes plus-animation-reverse {
+  0% {
+    transform: rotate(45deg) scale(0.95);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+  55% {
+    transform: rotate(10deg);
+  }
+  80% {
+    transform: rotate(-3deg);
+  }
+  100% {
+    transform: rotate(0) scale(1);
+  }
+}
+@-webkit-keyframes stretch-animation {
+  0% {
+    transform: scale(1, 1);
+  }
+  10% {
+    transform: scale(1.1, 0.9);
+  }
+  30% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.05, 0.95);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+@keyframes stretch-animation {
+  0% {
+    transform: scale(1, 1);
+  }
+  10% {
+    transform: scale(1.1, 0.9);
+  }
+  30% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.05, 0.95);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

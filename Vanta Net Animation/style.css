@@ -1,0 +1,11 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	overflow-x: hidden;
+}
+#vanta-net{
+	width: 100%;
+	height: 100vh;
+}
